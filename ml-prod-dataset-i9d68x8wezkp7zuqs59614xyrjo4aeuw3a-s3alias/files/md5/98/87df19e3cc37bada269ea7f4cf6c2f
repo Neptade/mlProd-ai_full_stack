@@ -1,0 +1,30 @@
+<dataset>
+    <record>
+        <id>1</id>
+        <name>John Doe</name>
+        <email>johndoe@example.com</email>
+        <age>29</age>
+        <country>USA</country>
+    </record>
+    <record>
+        <id>2</id>
+        <name>Jane Smith</name>
+        <email>janesmith@example.com</email>
+        <age>34</age>
+        <country>Canada</country>
+    </record>
+    <record>
+        <id>3</id>
+        <name>Michael Johnson</name>
+        <email>michaelj@example.com</email>
+        <age>41</age>
+        <country>UK</country>
+    </record>
+    <record>
+        <id>4</id>
+        <name>Emily Davis</name>
+        <email>emilyd@example.com</email>
+        <age>22</age>
+        <country>Australia</country>
+    </record>
+</dataset>
