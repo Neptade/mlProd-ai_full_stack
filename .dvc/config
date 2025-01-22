@@ -1,0 +1,4 @@
+[core]
+    remote = storage
+['remote "storage"']
+    url = ../ml-prod-dataset-i9d68x8wezkp7zuqs59614xyrjo4aeuw3a-s3alias
