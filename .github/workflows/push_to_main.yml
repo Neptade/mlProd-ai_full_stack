@@ -18,7 +18,7 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
 
     - name: Build the backend Docker image
-      run: docker build . -t ${{ secrets.DOCKER_USERNAME }}/MLProd:latest 
+      run: docker build . -t ${{ secrets.DOCKER_USERNAME }}/mlprod:latest 
 
     - name: Push the backend Docker image to Docker Hub
       run: docker push ${{ secrets.DOCKER_USERNAME }}/mlprod:latest
