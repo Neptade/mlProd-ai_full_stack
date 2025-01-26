@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { MedicalData, MedicalDataForm } from "./components/MedicalDataForm"
+import { FlowerData, FlowerDataForm } from "./components/FlowerDataForm"
 import { PredictionResult } from "./components/PredictionResult"
 import { PredictionHistory } from "./components/PredictionHistory"
 import { usePredictionHistory } from "./hooks/usePredictionHistory"
@@ -8,14 +8,14 @@ export default function App() {
   const [prediction, setPrediction] = useState<number | null>(null)
   const { history, addPrediction } = usePredictionHistory()
 
-  const handleSubmit = async (data: MedicalData) => {
+  const handleSubmit = async (data: FlowerData) => {
     try {
-      const response = await fetch("/api/predict", {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/predict`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify({input: [[data.sepalLength, data.sepalWidth, data.petalLength, data.petalWidth]]}),
       })
 
       if (!response.ok) {
@@ -23,12 +23,12 @@ export default function App() {
       }
 
       const result = await response.json()
-      setPrediction(result.prediction)
+      setPrediction(result.target_names[0])
 
       addPrediction({
         id: Date.now().toString(),
         data,
-        result: result.prediction,
+        result: result.target_names[0],
       })
     } catch (error) {
       console.error("Error:", error)
@@ -38,8 +38,8 @@ export default function App() {
 
   return (
     <main className="container mx-auto p-4">
-      <h1 className="text-3xl font-bold mb-8">Medical Prediction App</h1>
-      <MedicalDataForm onSubmit={handleSubmit} />
+      <h1 className="text-3xl font-bold mb-8">Flower Prediction App</h1>
+      <FlowerDataForm onSubmit={handleSubmit} />
       <PredictionResult prediction={prediction} />
       <PredictionHistory history={history} />
     </main>
