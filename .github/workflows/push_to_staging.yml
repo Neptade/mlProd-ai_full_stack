@@ -1,0 +1,55 @@
+name: Push to Main from Staging
+
+on:
+  push:
+    branches:
+      - staging
+
+jobs:
+  build_and_test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        working-directory: ./frontend
+        run: npm install
+      
+      #- name: Run frontend tests
+        #working-directory: ./frontend
+        #run: npm run test
+
+      #- name: Run backend tests
+        #working-directory: ./backend
+        #run: npm run test
+
+      #- name: Install e2e dependencies
+        #working-directory: ./e2e-test
+        #run: npm run install
+
+      #- name: Run 2e2 tests
+        #working-directory: ./e2e-test
+        #run: npm run test
+
+  auto_merge_to_main:
+      needs: build_and_test
+      runs-on: ubuntu-latest
+      if: success()
+
+      steps:
+        - name: Checkout code
+          uses: actions/checkout@v4
+
+        - name: Merge Dev to Main
+          uses: devmasx/merge-branch@master
+          with:
+            type: now
+            from_branch: staging
+            target_branch: main
+            github_token: ${{ secrets.USER_TOKEN }}
