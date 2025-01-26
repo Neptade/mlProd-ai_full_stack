@@ -18,15 +18,9 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
 
     - name: Build the backend Docker image
-      run: docker build ./backend -t alange20/e2e_backend:latest 
+      run: docker build . -t ${{ secrets.DOCKER_USERNAME }}/MLProd:latest 
 
     - name: Push the backend Docker image to Docker Hub
-      run: docker push alange20/e2e_backend:latest
+      run: docker push ${{ secrets.DOCKER_USERNAME }}/MLProd:latest
 
-    - name: Build the frontend the Docker image
-      run: docker build ./frontend -t alange20/e2e_frontend:latest
 
-    - name: Push the frontend Docker image to Docker Hub
-      run: docker push alange20/e2e_frontend:latest
-
-      
