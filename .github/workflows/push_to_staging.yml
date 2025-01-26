@@ -12,14 +12,14 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
       
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18'
+    #   - name: Set up Node.js
+    #     uses: actions/setup-node@v3
+    #     with:
+    #       node-version: '18'
 
-      - name: Install dependencies
-        working-directory: ./frontend
-        run: npm install
+    #   - name: Install dependencies
+    #     working-directory: ./frontend
+    #     run: npm install
       
       #- name: Run frontend tests
         #working-directory: ./frontend
@@ -36,6 +36,8 @@ jobs:
       #- name: Run 2e2 tests
         #working-directory: ./e2e-test
         #run: npm run test
+
+      #
 
   auto_merge_to_main:
       needs: build_and_test
