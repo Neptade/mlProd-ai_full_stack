@@ -5,6 +5,9 @@ on:
     branches:
       - staging
 
+env:
+  BACKEND_URL: http://localhost:5005
+
 jobs:
   build_and_test:
     runs-on: ubuntu-latest
@@ -26,6 +29,10 @@ jobs:
         working-directory: ./frontend
         run: npm install
       
+      - name: Build frontend
+        working-directory: ./frontend
+        run: npm run build
+
       - name: Run unit tests
         working-directory: ./frontend
         run: npm run test
@@ -40,13 +47,20 @@ jobs:
         working-directory: ./backend
         run: python3 apptest.py
 
-      #- name: Install e2e dependencies
-        #working-directory: ./e2e-test
-        #run: npm run install
+      - name: Install e2e dependencies
+        working-directory: ./e2e
+        run: npm install
 
-      #- name: Run 2e2 tests
-        #working-directory: ./e2e-test
-        #run: npm run test
+      - name: Start Frontend
+        working-directory: ./frontend
+        run: npm start&
+
+      - name: Run 2e2 tests
+        working-directory: ./e2e
+        run: | 
+          npx playwright install
+          npx playwright test e2e.test.js
+
 
       #
 
