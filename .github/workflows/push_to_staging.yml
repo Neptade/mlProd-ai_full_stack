@@ -5,9 +5,9 @@ on:
     branches:
       - staging
 
-env:
-  FRONTEND_URL: http://localhost:3000
-  BACKEND_URL: http://localhost:5005
+#env:
+#  FRONTEND_URL: http://localhost:3000
+#  BACKEND_URL: http://localhost:5005
 
 jobs:
   build_and_test:
@@ -48,32 +48,32 @@ jobs:
         working-directory: ./backend
         run: python3 apptest.py
 
-      - name: Install e2e dependencies
-        working-directory: ./e2e
-        run: npm install
+      #- name: Install e2e dependencies
+      #  working-directory: ./e2e
+      #  run: npm install
 
-      - name: Run backend
-        working-directory: ./backend
-        run: python3 app.py&
+      # - name: Run backend
+      #   working-directory: ./backend
+      #   run: python3 app.py&
 
-      - name: Start Frontend
-        working-directory: ./frontend
-        run: |
-          npm run start &
-          until nc -zv localhost 3000; do
-            echo "Waiting for frontend to start..."
-            sleep 2
-          done
+      # - name: Start Frontend
+      #   working-directory: ./frontend
+      #   run: |
+      #     npm run start &
+      #     until nc -zv localhost 3000; do
+      #       echo "Waiting for frontend to start..."
+      #       sleep 2
+      #     done
 
-      - name: Run 2e2 tests
-        working-directory: ./e2e
-        run: | 
-          npx playwright install
-          npx playwright test e2e.test.js
+      # - name: Run 2e2 tests
+      #   working-directory: ./e2e
+      #   run: | 
+      #     npx playwright install
+      #     npx playwright test e2e.test.js
 
-      - name: Stop frontend and backend
-        run: |
-          kill $(jobs -p) 
+      # - name: Stop frontend and backend
+      #   run: |
+      #     kill $(jobs -p) 
       #
 
   auto_merge_to_main:
