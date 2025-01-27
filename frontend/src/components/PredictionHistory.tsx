@@ -1,11 +1,5 @@
-import { FlowerData } from './FlowerDataForm'
+import { Prediction } from '../utils/types'
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/Card"
-
-interface Prediction {
-  id: string
-  data: FlowerData
-  result: string
-}
 
 interface PredictionHistoryProps {
   history: Prediction[]
