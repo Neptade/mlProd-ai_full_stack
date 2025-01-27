@@ -1,0 +1,29 @@
+services:
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        - VITE_API_URL=http://backend:5005
+    ports:
+      - "3000:3000"
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "5005:5005"
+
+  tests:
+    image: mcr.microsoft.com/playwright:v1.50.0-jammy
+    depends_on:
+      - frontend
+      - backend
+    volumes:
+      - ./e2e:/e2e
+    working_dir: /e2e
+    environment:
+      - FRONTEND_URL=http://frontend:3000
+      - BACKEND_URL=http://backend:5005
+    entrypoint: ["npx", "playwright", "test", "e2e.test.js"]

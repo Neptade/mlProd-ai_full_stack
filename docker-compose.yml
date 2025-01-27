@@ -1,16 +1,10 @@
 services:
   frontend:
-    build:
-      context: ./frontend
-      dockerfile: Dockerfile
-      args:
-        - VITE_API_URL=http://localhost:5005
+    image: neptade/mlprod_frontend:latest
     ports:
       - "3000:3000"
 
   backend:
-    build:
-      context: ./backend
-      dockerfile: Dockerfile
+    image: neptade/mlprod_backend:latest
     ports:
       - "5005:5005"
