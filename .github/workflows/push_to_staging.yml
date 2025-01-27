@@ -55,6 +55,10 @@ jobs:
         working-directory: ./frontend
         run: npm start&
 
+      - name: Run backend
+        working-directory: ./backend
+        run: python3 app.py
+
       - name: Run 2e2 tests
         working-directory: ./e2e
         run: | 
