@@ -8,3 +8,8 @@ services:
     image: neptade/mlprod_backend:latest
     ports:
       - "5005:5005"
+
+  watchtower:
+    image: containrrr/watchtower
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
