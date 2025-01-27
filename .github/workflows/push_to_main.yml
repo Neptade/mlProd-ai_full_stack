@@ -18,9 +18,15 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
 
     - name: Build the backend Docker image
-      run: docker build . -t ${{ secrets.DOCKER_USERNAME }}/mlprod:latest 
+      run: docker build ./backend -t ${{ secrets.DOCKER_USERNAME }}/mlprod_backend:latest 
 
     - name: Push the backend Docker image to Docker Hub
-      run: docker push ${{ secrets.DOCKER_USERNAME }}/mlprod:latest
-#test
+      run: docker push ${{ secrets.DOCKER_USERNAME }}/mlprod_backend:latest 
 
+    - name: Build the frontend the Docker image
+      run: docker build ./frontend -t ${{ secrets.DOCKER_USERNAME }}/mlprod_frontend:latest 
+
+    - name: Push the frontend Docker image to Docker Hub
+      run: docker push ${{ secrets.DOCKER_USERNAME }}/mlprod_frontend:latest 
+
+      
