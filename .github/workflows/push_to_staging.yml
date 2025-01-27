@@ -52,13 +52,18 @@ jobs:
         working-directory: ./e2e
         run: npm install
 
-      - name: Start Frontend
-        working-directory: ./frontend
-        run: npm run start&
-
       - name: Run backend
         working-directory: ./backend
         run: python3 app.py&
+
+      - name: Start Frontend
+        working-directory: ./frontend
+        run: |
+          npm run start &
+          until nc -zv localhost 3000; do
+            echo "Waiting for frontend to start..."
+            sleep 2
+          done
 
       - name: Run 2e2 tests
         working-directory: ./e2e
