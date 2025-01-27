@@ -57,7 +57,7 @@ jobs:
 
       - name: Run backend
         working-directory: ./backend
-        run: python3 app.py
+        run: python3 app.py&
 
       - name: Run 2e2 tests
         working-directory: ./e2e
@@ -65,7 +65,9 @@ jobs:
           npx playwright install
           npx playwright test e2e.test.js
 
-
+      - name: Stop frontend and backend
+        run: |
+          kill $(jobs -p) 
       #
 
   auto_merge_to_main:
