@@ -2,13 +2,7 @@ import { useState } from "react"
 import { Button } from "./ui/Button"
 import { Input } from "./ui/Input"
 import { Label } from "./ui/Label"
-
-export interface FlowerData {
-  sepalLength: number
-  sepalWidth: number
-  petalLength: number
-  petalWidth: number
-}
+import { FlowerData } from '../utils/types'
 
 interface FlowerDataFormProps {
   onSubmit: (data: FlowerData) => void

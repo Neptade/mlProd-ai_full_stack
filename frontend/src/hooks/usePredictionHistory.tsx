@@ -1,11 +1,5 @@
 import { useState, useEffect } from "react"
-import { FlowerData } from '../components/FlowerDataForm'
-
-interface Prediction {
-  id: string
-  data: FlowerData
-  result: number
-}
+import { Prediction } from '../utils/types'
 
 export function usePredictionHistory() {
   const [history, setHistory] = useState<Prediction[]>([])

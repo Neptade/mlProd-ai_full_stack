@@ -1,11 +1,12 @@
 import { useState } from "react"
-import { FlowerData, FlowerDataForm } from "./components/FlowerDataForm"
+import { FlowerDataForm } from "./components/FlowerDataForm"
 import { PredictionResult } from "./components/PredictionResult"
 import { PredictionHistory } from "./components/PredictionHistory"
 import { usePredictionHistory } from "./hooks/usePredictionHistory"
+import { FlowerData } from './utils/types'
 
 export default function App() {
-  const [prediction, setPrediction] = useState<number | null>(null)
+  const [prediction, setPrediction] = useState<string | null>(null)
   const { history, addPrediction } = usePredictionHistory()
 
   const handleSubmit = async (data: FlowerData) => {
