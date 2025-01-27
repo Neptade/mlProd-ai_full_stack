@@ -88,6 +88,10 @@ def predict():
     if not input_data:
         return jsonify({"error": "No input data provided"}), 400
 
+    # Check that it is a list of list of numbers
+    if not all(isinstance(i, list) and all(isinstance(j, (int, float)) for j in i) for i in input_data):
+        return jsonify({"error": "Invalid input format. It should be a list of list of numbers"}), 400
+
     #convert input data to numpy array
     input_array = np.array(input_data)
 

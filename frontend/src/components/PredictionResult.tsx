@@ -1,5 +1,5 @@
 interface PredictionResultProps {
-  prediction: number | null
+  prediction: string | null
 }
 
 export function PredictionResult({ prediction }: PredictionResultProps) {
