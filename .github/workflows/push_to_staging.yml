@@ -6,7 +6,7 @@ on:
       - staging
 
 env:
-  BACKEND_URL: http://localhost:5005
+  BACKEND_URL: "http://localhost:5005"
 
 jobs:
   build_and_test:
