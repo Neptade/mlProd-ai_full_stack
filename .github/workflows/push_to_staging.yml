@@ -45,11 +45,11 @@ jobs:
         run: python3 apptest.py
 
       - name: Install e2e dependencies
-        working-directory: ./e2e-test
+        working-directory: ./e2e
         run: npm install
 
       - name: Run 2e2 tests
-        working-directory: ./e2e-test
+        working-directory: ./e2e
         run: npm run test
 
       #
