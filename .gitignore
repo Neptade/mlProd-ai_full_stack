@@ -3,3 +3,5 @@
 .venv/
 node_modules/
 backend/mlruns/
+backend/tests/__pychache__/
+backend/__pychache__/
