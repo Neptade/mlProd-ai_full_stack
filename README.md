@@ -1,12 +1,16 @@
 # ML in Production
 
-We created this project to predict the type of flower based on the sepal/petal length/width.
-
-By: Loïc RUSSELL, Martin VIALLE, Antoine LANGE, Elliot MAISL.
-
 Our app is hosted online at: http://ml-prod.ddns.net:3000/
 
+By: Loïc RUSSELL, Martin VIALLE, Antoine LANGE, Elliot MAISL.\
+M2 Data Engineering 2, 2025.
+
+We created this project to predict the type of flower based on the sepal/petal length/width.
+
+## Table of contents
+
 - [ML in Production](#ml-in-production)
+  - [Table of contents](#table-of-contents)
   - [Model](#model)
   - [Backend](#backend)
   - [Frontend](#frontend)
