@@ -26,6 +26,10 @@ jobs:
         working-directory: ./frontend
         run: npm install
       
+      - name: Build frontend
+        working-directory: ./frontend
+        run: npm run build
+
       - name: Run unit tests
         working-directory: ./frontend
         run: npm run test
@@ -40,13 +44,13 @@ jobs:
         working-directory: ./backend
         run: python3 apptest.py
 
-      #- name: Install e2e dependencies
-        #working-directory: ./e2e-test
-        #run: npm run install
+      - name: Install e2e dependencies
+        working-directory: ./e2e-test
+        run: npm run install
 
-      #- name: Run 2e2 tests
-        #working-directory: ./e2e-test
-        #run: npm run test
+      - name: Run 2e2 tests
+        working-directory: ./e2e-test
+        run: npm run test
 
       #
 
