@@ -18,7 +18,7 @@ CORS(app)
 model = None
 
 # Load dataset and prepare training/testing data
-iris = pd.read_csv("../dataset/iris.csv")
+iris = pd.read_csv("./dataset/iris.csv")
 X = iris.drop(["target"], axis=1)
 y = iris["target"]
 feature_names = iris.columns[:-1]
