@@ -54,7 +54,10 @@ jobs:
 
       - name: Run 2e2 tests
         working-directory: ./e2e
-        run: npx playwright test e2e.test.js
+        run: | 
+          npx playwright install
+          npx playwright test e2e.test.js
+
 
       #
 
