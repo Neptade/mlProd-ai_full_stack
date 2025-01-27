@@ -6,8 +6,8 @@ on:
       - staging
 
 env:
-  BACKEND_URL: "http://localhost:5005"
-  FRONTEND_URL: "http://localhost:3000"
+  FRONTEND_URL: http://frontend:3000
+  BACKEND_URL: http://backend:5005
 
 jobs:
   build_and_test:
