@@ -8,7 +8,7 @@ export function PredictionResult({ prediction }: PredictionResultProps) {
   return (
     <div className="mt-4 p-4 bg-green-100 rounded-md">
       <h2 className="text-lg font-semibold">Prediction Result</h2>
-      <p>The predicted value is: {prediction.toFixed(2)}</p>
+      <p>The flower is: {prediction}</p>
     </div>
   )
 }

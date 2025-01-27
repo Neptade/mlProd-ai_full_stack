@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react"
-import { MedicalData } from '../components/MedicalDataForm'
+import { FlowerData } from '../components/FlowerDataForm'
 
 interface Prediction {
   id: string
-  data: MedicalData
+  data: FlowerData
   result: number
 }
 

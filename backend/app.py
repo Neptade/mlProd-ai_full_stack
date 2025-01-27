@@ -1,4 +1,6 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
+
 import numpy as np
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
@@ -10,12 +12,13 @@ from mlflow.models import infer_signature
 
 # Flask app
 app = Flask(__name__)
+CORS(app)
 
-# Global variables 
+# Global variables
 model = None
 
 # Load dataset and prepare training/testing data
-iris = pd.read_csv("iris.csv")
+iris = pd.read_csv("./dataset/iris.csv")
 X = iris.drop(["target"], axis=1)
 y = iris["target"]
 feature_names = iris.columns[:-1]
@@ -75,7 +78,7 @@ def train_model():
 @app.route('/predict', methods=['POST'])
 def predict():
     # predictions using the trained model with a JSON array of input data.
-    
+
     global model
     if model is None:
         return jsonify({"error": "Model not trained. Train the model first using /train."}), 400
