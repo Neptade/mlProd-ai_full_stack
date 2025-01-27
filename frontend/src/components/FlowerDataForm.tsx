@@ -84,7 +84,7 @@ export function FlowerDataForm({ onSubmit }: FlowerDataFormProps) {
           />
         </div>
       </div>
-      <Button type="submit" className="w-full">
+      <Button type="submit" id="submit-flower" className="w-full">
         Submit
       </Button>
     </form>
