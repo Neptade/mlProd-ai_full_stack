@@ -12,22 +12,31 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
       
-    #   - name: Set up Node.js
-    #     uses: actions/setup-node@v3
-    #     with:
-    #       node-version: '18'
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
 
-    #   - name: Install dependencies
-    #     working-directory: ./frontend
-    #     run: npm install
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v3
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        working-directory: ./frontend
+        run: npm install
       
-      #- name: Run frontend tests
-        #working-directory: ./frontend
-        #run: npm run test
+      - name: Run unit tests
+        working-directory: ./frontend
+        run: npm run test
 
-      #- name: Run backend tests
-        #working-directory: ./backend
-        #run: npm run test
+      - name: Run backend tests
+        working-directory: ./backend
+        run: pip install
+
+      - name: Run integration tests
+        working-directory: ./backend
+        run: python3 apptest.py
 
       #- name: Install e2e dependencies
         #working-directory: ./e2e-test
