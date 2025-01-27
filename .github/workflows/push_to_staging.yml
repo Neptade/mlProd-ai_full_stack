@@ -5,6 +5,9 @@ on:
     branches:
       - staging
 
+env:
+  BACKEND_URL: http://localhost:5005
+
 jobs:
   build_and_test:
     runs-on: ubuntu-latest
