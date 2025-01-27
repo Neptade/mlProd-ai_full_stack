@@ -4,3 +4,4 @@
 node_modules/
 backend/mlruns/
 __pycache__
+test-results/
